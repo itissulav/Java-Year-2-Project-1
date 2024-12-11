@@ -388,7 +388,7 @@ public class Patni extends javax.swing.JFrame {
         });
         AdminPanel.add(TfPartnerHeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 550, 250, -1));
 
-        AddButtonAdmin.setBackground(new java.awt.Color(0, 0, 0));
+        AddButtonAdmin.setBackground(new java.awt.Color(251, 176, 64));
         AddButtonAdmin.setFont(new java.awt.Font("Baloo 2", 1, 14)); // NOI18N
         AddButtonAdmin.setForeground(new java.awt.Color(248, 250, 252));
         AddButtonAdmin.setText("Add");
@@ -399,7 +399,7 @@ public class Patni extends javax.swing.JFrame {
         });
         AdminPanel.add(AddButtonAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 650, 90, 40));
 
-        UpdateButtonAdmin.setBackground(new java.awt.Color(0, 0, 0));
+        UpdateButtonAdmin.setBackground(new java.awt.Color(251, 176, 64));
         UpdateButtonAdmin.setFont(new java.awt.Font("Baloo 2", 1, 14)); // NOI18N
         UpdateButtonAdmin.setForeground(new java.awt.Color(248, 250, 252));
         UpdateButtonAdmin.setText("Update");
@@ -410,7 +410,7 @@ public class Patni extends javax.swing.JFrame {
         });
         AdminPanel.add(UpdateButtonAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 650, 100, 40));
 
-        DeleteButtonAdmin.setBackground(new java.awt.Color(0, 0, 0));
+        DeleteButtonAdmin.setBackground(new java.awt.Color(251, 176, 64));
         DeleteButtonAdmin.setFont(new java.awt.Font("Baloo 2", 1, 14)); // NOI18N
         DeleteButtonAdmin.setForeground(new java.awt.Color(248, 250, 252));
         DeleteButtonAdmin.setText("Delete");
@@ -421,7 +421,7 @@ public class Patni extends javax.swing.JFrame {
         });
         AdminPanel.add(DeleteButtonAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 650, 90, 40));
 
-        MarriedButtonAdmin.setBackground(new java.awt.Color(0, 0, 0));
+        MarriedButtonAdmin.setBackground(new java.awt.Color(251, 176, 64));
         MarriedButtonAdmin.setFont(new java.awt.Font("Baloo 2", 1, 14)); // NOI18N
         MarriedButtonAdmin.setForeground(new java.awt.Color(248, 250, 252));
         MarriedButtonAdmin.setText("Married");
@@ -430,7 +430,7 @@ public class Patni extends javax.swing.JFrame {
                 MarriedButtonAdminActionPerformed(evt);
             }
         });
-        AdminPanel.add(MarriedButtonAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 750, 90, 40));
+        AdminPanel.add(MarriedButtonAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 750, 100, 40));
 
         IdErrorLabel.setForeground(new java.awt.Color(255, 255, 255));
         AdminPanel.add(IdErrorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 480, 250, 20));
@@ -638,18 +638,22 @@ public class Patni extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1300, 1080));
         setSize(new java.awt.Dimension(1300, 1080));
 
+        LoginPanel.setMaximumSize(new java.awt.Dimension(1300, 830));
+        LoginPanel.setMinimumSize(new java.awt.Dimension(1300, 830));
+        LoginPanel.setName(""); // NOI18N
+        LoginPanel.setPreferredSize(new java.awt.Dimension(1300, 830));
         LoginPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TfLoginUsername.setText("Username");
-        LoginPanel.add(TfLoginUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 472, 300, 30));
+        LoginPanel.add(TfLoginUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, 300, 40));
 
         TfLoginPassword.setText("Password");
-        LoginPanel.add(TfLoginPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 542, 300, 30));
+        LoginPanel.add(TfLoginPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 470, 300, 40));
 
         jLabel1.setFont(new java.awt.Font("Ananda Namaste", 1, 100)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 209, 102));
         jLabel1.setText("Welcome");
-        LoginPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 390, 70));
+        LoginPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 390, 70));
 
         LoginButton.setBackground(new java.awt.Color(255, 209, 102));
         LoginButton.setFont(new java.awt.Font("Baloo 2 ExtraBold", 1, 14)); // NOI18N
@@ -660,13 +664,13 @@ public class Patni extends javax.swing.JFrame {
                 LoginButtonActionPerformed(evt);
             }
         });
-        LoginPanel.add(LoginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 640, -1, -1));
+        LoginPanel.add(LoginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 560, -1, -1));
 
         IncorrectLabelLogin.setForeground(new java.awt.Color(255, 255, 255));
-        LoginPanel.add(IncorrectLabelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 440, 300, 20));
+        LoginPanel.add(IncorrectLabelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 300, 20));
 
-        BackgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/LoginPageImage.png"))); // NOI18N
-        LoginPanel.add(BackgroundImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        BackgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Login Page.png"))); // NOI18N
+        LoginPanel.add(BackgroundImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
