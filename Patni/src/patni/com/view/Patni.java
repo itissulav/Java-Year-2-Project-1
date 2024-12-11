@@ -25,6 +25,7 @@ public class Patni extends javax.swing.JFrame {
     public Patni() {
         initComponents();
         initializeLayout();
+        startProgress();
         availablePartners = new LinkedList();
         marriedPartners = new LinkedList();
     }
@@ -33,12 +34,48 @@ public class Patni extends javax.swing.JFrame {
         getContentPane().setLayout(cardLayout);
 
         // Add panels with unique identifiers
+        getContentPane().add(LoadingPanel, "LoadingScreen");
         getContentPane().add(LoginPanel, "LoginScreen");
         getContentPane().add(HomePanel, "HomeScreen");
         getContentPane().add(AdminPanel, "AdminScreen");
         getContentPane().add(DatabasePanel, "DatabaseScreen");
 
-        loadScreen("LoginScreen");
+        loadScreen("LoadingScreen");
+    }
+    private void startProgress() {
+        javax.swing.SwingWorker<Void, Integer> worker = new javax.swing.SwingWorker<>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                for (int i = 0; i <= 100; i++) {
+                    Thread.sleep(30); // Simulated delay for progress bar
+                    publish(i);
+                }
+                return null;
+            }
+
+            @Override
+        protected void process(java.util.List<Integer> chunks) {
+            int progress = chunks.get(chunks.size() - 1);
+            ProgressBar.setValue(progress);
+
+            // Update messages based on progress
+            if (progress <= 30) {
+                messageLabel.setText("Tying the knot...");
+            } else if (progress <= 70) {
+                messageLabel.setText("Setting the stage...");
+            } else if (progress < 100) {
+                messageLabel.setText("Dancing to the baraat...");
+            } else {
+                messageLabel.setText("Happily ever after!");
+            }
+        }
+
+            @Override
+            protected void done() {
+                loadScreen("LoginScreen"); // Switch to login screen
+            }
+        };
+        worker.execute();
     }
     
     
@@ -118,6 +155,10 @@ public class Patni extends javax.swing.JFrame {
         HomeButtonHome2 = new javax.swing.JButton();
         LogoMessageLabel2 = new javax.swing.JLabel();
         AdminImage2 = new javax.swing.JLabel();
+        LoadingPanel = new javax.swing.JPanel();
+        ProgressBar = new javax.swing.JProgressBar();
+        messageLabel = new javax.swing.JLabel();
+        LoadingScreenImage = new javax.swing.JLabel();
         LoginPanel = new javax.swing.JPanel();
         TfLoginUsername = new javax.swing.JTextField();
         TfLoginPassword = new javax.swing.JPasswordField();
@@ -577,10 +618,24 @@ public class Patni extends javax.swing.JFrame {
         AdminImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Admin Page.png"))); // NOI18N
         AboutusPanel.add(AdminImage2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 1080));
 
+        LoadingPanel.setMaximumSize(new java.awt.Dimension(1300, 1080));
+        LoadingPanel.setMinimumSize(new java.awt.Dimension(1300, 1080));
+        LoadingPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ProgressBar.setBackground(new java.awt.Color(50, 4, 10));
+        ProgressBar.setForeground(new java.awt.Color(207, 172, 108));
+        ProgressBar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        LoadingPanel.add(ProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 680, 690, 30));
+
+        messageLabel.setForeground(new java.awt.Color(251, 176, 64));
+        LoadingPanel.add(messageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 650, 240, 20));
+
+        LoadingScreenImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Loading Page (Grid).png"))); // NOI18N
+        LoadingPanel.add(LoadingScreenImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 1080));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1300, 1080));
         setMinimumSize(new java.awt.Dimension(1300, 1080));
-        setPreferredSize(new java.awt.Dimension(1300, 1080));
         setSize(new java.awt.Dimension(1300, 1080));
 
         LoginPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -880,7 +935,7 @@ public class Patni extends javax.swing.JFrame {
     }//GEN-LAST:event_AboutusButtonHomeActionPerformed
 
     private void DatabaseButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DatabaseButtonHomeActionPerformed
-        loadScreen("Database Screen");
+        loadScreen("DatabaseScreen");
     }//GEN-LAST:event_DatabaseButtonHomeActionPerformed
 
     private void AdminButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonHomeActionPerformed
@@ -963,6 +1018,8 @@ public class Patni extends javax.swing.JFrame {
     private javax.swing.JLabel IdErrorLabel;
     private javax.swing.JLabel IncorrectLabelLogin;
     private javax.swing.JLabel JobErrorLabel;
+    private javax.swing.JPanel LoadingPanel;
+    private javax.swing.JLabel LoadingScreenImage;
     private javax.swing.JButton LoginButton;
     private javax.swing.JPanel LoginPanel;
     private javax.swing.JLabel LogoMessageLabel;
@@ -971,6 +1028,7 @@ public class Patni extends javax.swing.JFrame {
     private javax.swing.JLabel LogoMessageLabel3;
     private javax.swing.JButton MarriedButtonAdmin;
     private javax.swing.JLabel NameErrorLabel;
+    private javax.swing.JProgressBar ProgressBar;
     private javax.swing.JLabel ReligionErrorLabel;
     private javax.swing.JLabel SalaryErrorLabel;
     private javax.swing.JPasswordField TfLoginPassword;
@@ -990,5 +1048,6 @@ public class Patni extends javax.swing.JFrame {
     private javax.swing.JLabel WelcomeMessagelabel2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel messageLabel;
     // End of variables declaration//GEN-END:variables
 }
